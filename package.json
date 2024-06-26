@@ -1,5 +1,5 @@
 {
-  "name": "proshop",
+  "name": "embellish",
   "version": "1.0.0",
   "description": "eCommerce application built with MERN Stack",
   "main": "server.js",
@@ -12,7 +12,7 @@
     "data:destroy": "node backend/seeder.js -d",
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
-  "author": "Nancy Patel",
+  "author": "Shivang Kacha",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.7.2",
