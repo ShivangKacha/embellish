@@ -8,6 +8,7 @@ const razorpay = new Razorpay({ key_id: 'YOUR_KEY_ID', key_secret: 'YOUR_SECRET'
 // @route  POST /api/orders
 // @access Private
 const addOrderItems = asyncHandler(async (req, res) => {
+  console.log(req.cookies)
   const {
     orderItems,
     shippingAddress,
