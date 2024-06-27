@@ -11,10 +11,18 @@ const orderRoutes = require("./routes/orderRoutes");
 const uploadRoutes = require("./routes/uploadRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
 const PORT = process.env.PORT || 5000;
+const cors = require("cors");
+
 
 connectDB();
 
 const app = express();
+
+// cors middleware
+app.use(cors({
+  origin: '*',
+  credentials: true
+}))
 
 // body parser middleware
 app.use(express.json());
