@@ -70,7 +70,7 @@ const CartScreen = () => {
                     </Link>
                   </Grid>
                   <Grid item xs={12} md={2}>
-                    <Typography variant="body1">${item.price}</Typography>
+                    <Typography variant="body1">₹{item.price}</Typography>
                   </Grid>
                   <Grid item xs={12} md={2}>
                     <Select
@@ -109,7 +109,7 @@ const CartScreen = () => {
               Items
             </Typography>
             <Typography variant="h6">
-              $
+              ₹
               {cartItems
                 .reduce((acc, item) => acc + item.qty * item.price, 0)
                 .toFixed(2)}

@@ -42,9 +42,9 @@ const PaymentScreen = () => {
             onChange={(e) => setPaymentMethod(e.target.value)}
           >
             <FormControlLabel
-              value="PayPal"
+              value="RazorPay"
               control={<Radio />}
-              label="PayPal or Credit Card"
+              label="RazorPay or Credit Card"
             />
           </RadioGroup>
         </FormControl>

@@ -79,7 +79,7 @@ const StyledLink = styled(Link)({
 
 const Product = ({ product }) => {
   return (
-    <StyledCard>
+    <StyledCard sx={{ minHeight: 400 }}>
       <StyledLink to={`product/${product._id}`}>
         <CardActionArea>
           <StyledCardMedia
@@ -95,7 +95,7 @@ const Product = ({ product }) => {
               <Rating value={product.rating} text={`${product.numReviews} reviews`} />
             </StyledRating>
             <StyledPrice variant="h5">
-              ${product.price}
+              ₹{product.price}
             </StyledPrice>
           </CardContent>
         </CardActionArea>

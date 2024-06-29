@@ -93,7 +93,7 @@ const PlaceOrderScreen = () => {
                       </Grid>
                       <Grid item xs={4}>
                         <Typography variant="body2">
-                          {item.qty} x ${item.price} = ${item.qty * item.price}
+                          {item.qty} x ₹{item.price} = ₹{item.qty * item.price}
                         </Typography>
                       </Grid>
                     </Grid>
@@ -112,25 +112,25 @@ const PlaceOrderScreen = () => {
                 <ListItem>
                   <Grid container justifyContent="space-between">
                     <Typography variant="body2">Items</Typography>
-                    <Typography variant="body2">${cart.itemsPrice}</Typography>
+                    <Typography variant="body2">₹{cart.itemsPrice}</Typography>
                   </Grid>
                 </ListItem>
                 <ListItem>
                   <Grid container justifyContent="space-between">
                     <Typography variant="body2">Shipping</Typography>
-                    <Typography variant="body2">${cart.shippingPrice}</Typography>
+                    <Typography variant="body2">₹{cart.shippingPrice}</Typography>
                   </Grid>
                 </ListItem>
                 <ListItem>
                   <Grid container justifyContent="space-between">
                     <Typography variant="body2">Tax</Typography>
-                    <Typography variant="body2">${cart.taxPrice}</Typography>
+                    <Typography variant="body2">₹{cart.taxPrice}</Typography>
                   </Grid>
                 </ListItem>
                 <ListItem>
                   <Grid container justifyContent="space-between">
                     <Typography variant="body1" fontWeight="bold">Total</Typography>
-                    <Typography variant="body1" fontWeight="bold">${cart.totalPrice}</Typography>
+                    <Typography variant="body1" fontWeight="bold">₹{cart.totalPrice}</Typography>
                   </Grid>
                 </ListItem>
                 {error && (

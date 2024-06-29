@@ -179,7 +179,7 @@ const ProductListScreen = () => {
       }
     }
   };
-
+  console.log(data?.pages, data?.page)
   return (
     <Container>
       <Grid container justifyContent="space-between" alignItems="center" sx={{ my: 3 }}>
@@ -220,7 +220,7 @@ const ProductListScreen = () => {
                   <TableRow key={product._id}>
                     <TableCell>{product._id}</TableCell>
                     <TableCell>{product.name}</TableCell>
-                    <TableCell>${product.price}</TableCell>
+                    <TableCell>₹{product.price}</TableCell>
                     <TableCell>{product.category}</TableCell>
                     <TableCell>{product.brand}</TableCell>
                     <TableCell>
@@ -250,7 +250,9 @@ const ProductListScreen = () => {
               </TableBody>
             </Table>
           </TableContainer>
-          <Paginate pages={data.pages} page={data.page} isAdmin={true} />
+
+          <Paginate pages={data?.pages} page={data?.page} isAdmin={true} />
+
         </>
       )}
     </Container>

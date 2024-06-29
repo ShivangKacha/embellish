@@ -107,7 +107,7 @@ const ProductScreen = () => {
                 <CardContent>
                   <Typography variant="h3">{product.name}</Typography>
                   <Rating value={product.rating} text={`${tempnumReviews} reviews`} />
-                  <Typography variant="h5">Price: ${product.price}</Typography>
+                  <Typography variant="h5">Price: ₹{product.price}</Typography>
                   <Typography variant="body1">{product.description}</Typography>
                 </CardContent>
               </Card>
@@ -115,7 +115,7 @@ const ProductScreen = () => {
             <Grid item xs={12} md={3}>
               <Card>
                 <CardContent>
-                  <Typography variant="h6">Price: ${product.price}</Typography>
+                  <Typography variant="h6">Price: ₹ {product.price}</Typography>
                   <Typography variant="h6">
                     Status: {product.countInStock > 0 ? "In Stock" : "Out Of Stock"}
                   </Typography>
@@ -156,14 +156,6 @@ const ProductScreen = () => {
               {product.reviews.length === 0 && <Message>No Reviews</Message>}
               <Card>
                 <CardContent>
-                  {product.reviews.map((review) => (
-                    <div key={review._id} style={{ marginBottom: '1rem' }}>
-                      <Typography variant="h6">{review.name}</Typography>
-                      <Rating value={review.rating} />
-                      <Typography variant="body2">{review.createdAt.substring(0, 10)}</Typography>
-                      <Typography variant="body1">{review.comment}</Typography>
-                    </div>
-                  ))}
                   <div>
                     <Typography variant="h5">Write a Customer Review</Typography>
                     {loadingProductReview && <CircularProgress />}
@@ -200,6 +192,7 @@ const ProductScreen = () => {
                           variant="contained"
                           color="primary"
                           disabled={loadingProductReview}
+                          style={{ backgroundColor: "#b79cc5" }}
                         >
                           Submit
                         </Button>
@@ -210,6 +203,14 @@ const ProductScreen = () => {
                       </Message>
                     )}
                   </div>
+                  {product.reviews.map((review) => (
+                    <div key={review._id} style={{ marginBottom: '1rem' }}>
+                      <Typography variant="h6">{review.name}</Typography>
+                      <Rating value={review.rating} />
+                      <Typography variant="body2">{review.createdAt.substring(0, 10)}</Typography>
+                      <Typography variant="body1">{review.comment}</Typography>
+                    </div>
+                  ))}
                 </CardContent>
               </Card>
             </Grid>

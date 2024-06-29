@@ -101,13 +101,15 @@ const ProductCarousel = () => {
           style={{ marginBottom: '1rem', backgroundColor: '#ebdfed', borderRadius: '15px' }}
         >
           <Link to={`/product/${product._id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-            <img
-              src={product.image}
-              alt={product.name}
-              style={{ width: '100%', borderTopLeftRadius: '15px', borderTopRightRadius: '15px', maxHeight: '300px', objectFit: 'cover' }}
-            />
-            <Typography variant="h5" align="right" style={{ color: '#333333', padding: '10px' }}>
-              {product.name} (${product.price})
+            <div align="center">
+              <img
+                src={product.image}
+                alt={product.name}
+                style={{ borderTopLeftRadius: '15px', borderTopRightRadius: '15px', maxHeight: '300px', objectFit: 'cover' }}
+              />
+            </div>
+            <Typography variant="h5" align="center" style={{ color: '#333333', padding: '10px' }}>
+              {product.name} (₹{product.price})
             </Typography>
           </Link>
         </Paper>
