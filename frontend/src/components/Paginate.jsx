@@ -26,31 +26,41 @@
 
 // export default Paginate;
 
-import { Pagination, PaginationItem } from "@mui/material";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Pagination from '@mui/material/Pagination';
+import PaginationItem from '@mui/material/PaginationItem';
 
 const Paginate = ({ pages, page, isAdmin = false, keyword }) => {
   return (
     pages > 1 && (
-      <Pagination count={pages} page={page} variant="outlined" shape="rounded">
-        {[...Array(pages).keys()].map((x) => (
+      <Pagination
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          flexWrap: 'nowrap',
+          alignContent: 'center',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}
+        count={pages}
+        page={page}
+        variant="outlined"
+        shape="rounded"
+        renderItem={(item) => (
           <PaginationItem
-            key={x + 1}
             component={Link}
             to={
               !isAdmin
                 ? keyword
-                  ? `/search/${keyword}/page/${x + 1}`
-                  : `/page/${x + 1}`
-                : `/admin/productlist/${x + 1}`
+                  ? `/search/${keyword}/page/${item.page}`
+                  : `/page/${item.page}`
+                : `/admin/productlist/${item.page}`
             }
-            selected={x + 1 === page}
-            disabled={x + 1 === page}
-          >
-            {x + 1}
-          </PaginationItem>
-        ))}
-      </Pagination>
+            {...item}
+          />
+        )}
+      />
     )
   );
 };
