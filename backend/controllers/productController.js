@@ -7,7 +7,6 @@ const Product = require("../models/productModel");
 const getProducts = asyncHandler(async (req, res) => {
   const pageSize = process.env.PAGINATION_LIMIT;
   const page = Number(req.query.pageNumber) || 1;
-
   const keyword = req.query.keyword
     ? { name: { $regex: req.query.keyword, $options: "i" } }
     : {};
@@ -145,6 +144,17 @@ const getTopProducts = asyncHandler(async (req, res) => {
   return res.status(200).json(products);
 });
 
+
+//@desc clear all products reviews
+//@route DELETE /api/products/delreviews
+//@access Private/Admin
+const clearProductReviews = asyncHandler(async (req, res) => {
+  await Product.updateMany({}, { $set: { reviews: [] } });
+  res.status(200).json({ message: "Reviews cleared" });
+});
+
+
+
 module.exports = {
   getProducts,
   getProductById,
@@ -153,4 +163,5 @@ module.exports = {
   deleteProduct,
   createProductReview,
   getTopProducts,
+  clearProductReviews,
 };

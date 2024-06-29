@@ -8,6 +8,7 @@ const {
   deleteProduct,
   createProductReview,
   getTopProducts,
+  clearProductReviews
 } = require("../controllers/productController");
 const { protect, admin } = require("../middlewares/authMiddleware");
 const checkObjectId = require("../middlewares/checkObjectId");
