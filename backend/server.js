@@ -44,7 +44,7 @@ app.use("/api/payment", paymentRoutes);
 const dirname = path.resolve(); //set __dirname to current directory
 app.use("/uploads", express.static(path.join(dirname, "/uploads")));
 
-if (process.env.NODE_ENV == "production") {
+if (process.env.NODE_ENV === "production") {
   const __dirname = path.resolve();
   // set static folder
   app.use(express.static(path.join(__dirname, "/frontend/build")));
