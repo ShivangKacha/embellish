@@ -321,7 +321,7 @@ const Header = () => {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        <ListItem button onClick={() => navigate('/cart')}>
+        <ListItem Button onClick={() => navigate('/cart')}>
           <Badge badgeContent={cartItems.reduce((acc, item) => acc + item.qty, 0)} color="error">
             <ShoppingCartIcon />
           </Badge>
@@ -332,24 +332,24 @@ const Header = () => {
         </ListItem>
         {userInfo ? (
           <>
-            <ListItem button onClick={() => navigate('/profile')}>
+            <ListItem Button onClick={() => navigate('/profile')}>
               <AccountCircle />
               <ListItemText primary="Profile" sx={{ marginLeft: '10px' }} />
             </ListItem>
-            <ListItem button onClick={logoutHandler}>
+            <ListItem Button onClick={logoutHandler}>
               <ListItemText primary="Logout" sx={{ marginLeft: '10px', color: '#333333' }} />
             </ListItem>
             {userInfo.isAdmin && (
               <>
-                <ListItem button onClick={() => navigate('/admin/productlist')}>
+                <ListItem Button onClick={() => navigate('/admin/productlist')}>
                   <AdminPanelSettingsIcon />
                   <ListItemText primary="Products" sx={{ marginLeft: '10px', color: '#333333' }} />
                 </ListItem>
-                <ListItem button onClick={() => navigate('/admin/userlist')}>
+                <ListItem Button onClick={() => navigate('/admin/userlist')}>
                   <AdminPanelSettingsIcon />
                   <ListItemText primary="Users" sx={{ marginLeft: '10px', color: '#333333' }} />
                 </ListItem>
-                <ListItem button onClick={() => navigate('/admin/orderlist')}>
+                <ListItem Button onClick={() => navigate('/admin/orderlist')}>
                   <AdminPanelSettingsIcon />
                   <ListItemText primary="Orders" sx={{ marginLeft: '10px', color: '#333333' }} />
                 </ListItem>
@@ -357,7 +357,7 @@ const Header = () => {
             )}
           </>
         ) : (
-          <ListItem button onClick={() => navigate('/login')}>
+          <ListItem Button onClick={() => navigate('/login')}>
             <AccountCircle />
             <ListItemText primary="Sign In" sx={{ marginLeft: '10px' }} />
           </ListItem>

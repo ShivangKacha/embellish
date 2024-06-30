@@ -48,7 +48,7 @@ const PaymentScreen = () => {
             />
           </RadioGroup>
         </FormControl>
-        <Button type="submit" fullWidth variant="contained" color="primary" sx={{ mt: 3, backgroundColor: "#b79cc5" }}>
+        <Button type="submit" fullWidth variant="contained" color="primary" sx={{ mt: 3, backgroundColor: "#b79cc5" }} style={{ backgroundColor: "#b79cc5" }}>
           Continue
         </Button>
       </Box>

@@ -86,7 +86,7 @@ const ShippingScreen = () => {
           variant="contained"
           color="primary"
           sx={{ mt: 3, mb: 2, backgroundColor: "#b79cc5" }}
-
+          style={{ backgroundColor: "#b79cc5" }}
         >
           Continue
         </Button>

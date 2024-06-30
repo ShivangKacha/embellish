@@ -149,6 +149,7 @@ const PlaceOrderScreen = () => {
                     disabled={cart.cartItems.length === 0}
                     onClick={placeOrderHandler}
                     sx={{ mt: 2, backgroundColor: "#b79cc5" }}
+                    style={{ backgroundColor: "#b79cc5" }}
                   >
                     Place Order
                   </Button>

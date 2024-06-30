@@ -157,11 +157,11 @@ const UserEditScreen = () => {
 
   return (
     <>
-      <Button component={Link} to="/admin/userlist" variant="contained" sx={{ mb: 3 }}>
+      <Button component={Link} to="/admin/userlist" variant="contained" sx={{ mb: 3 }} style={{ backgroundColor: "#b79cc5" }}>
         Go Back
       </Button>
       <Container maxWidth="sm">
-        <Typography variant="h4" component="h1" gutterBottom>
+        <Typography variant="h4" component="h1" gutterBottom >
           Edit User
         </Typography>
         {loadingUpdate && <CircularProgress />}
@@ -198,7 +198,7 @@ const UserEditScreen = () => {
               }
               label="Is Admin"
             />
-            <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2 }}>
+            <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2 }} style={{ backgroundColor: "#b79cc5" }}>
               Update
             </Button>
           </form>

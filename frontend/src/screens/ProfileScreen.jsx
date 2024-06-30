@@ -122,6 +122,7 @@ const ProfileScreen = () => {
               type="submit"
               fullWidth
               variant="contained"
+              style={{ backgroundColor: "#b79cc5" }}
               sx={{ mt: 3, mb: 2 }}
               color="primary"
               disabled={loadingUpdateProfile}
@@ -179,6 +180,7 @@ const ProfileScreen = () => {
                           variant="contained"
                           color="primary"
                           size="small"
+                          style={{ backgroundColor: "#b79cc5" }}
                         >
                           Details
                         </Button>

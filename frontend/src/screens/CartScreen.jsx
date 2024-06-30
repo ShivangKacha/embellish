@@ -121,7 +121,7 @@ const CartScreen = () => {
               fullWidth
               disabled={cartItems.length === 0}
               onClick={checkOutHandler}
-              sx={{ backgroundColor: "#b79cc5" }}
+              style={{ backgroundColor: "#b79cc5" }}
             >
               Proceed to Checkout
             </Button>

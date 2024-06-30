@@ -86,6 +86,8 @@ const ProductScreen = () => {
         to="/"
         variant="contained"
         sx={{ my: 2, backgroundColor: "#b79cc5" }}
+        type="submit"
+        style={{ backgroundColor: "#b79cc5" }}
       >
         Go Back
       </Button>
@@ -191,8 +193,8 @@ const ProductScreen = () => {
                           type="submit"
                           variant="contained"
                           color="primary"
-                          disabled={loadingProductReview}
                           style={{ backgroundColor: "#b79cc5" }}
+                          disabled={loadingProductReview}
                         >
                           Submit
                         </Button>
