@@ -11,7 +11,7 @@ const Meta = ({ title, description, keywords }) => {
 };
 
 Meta.defaultProps = {
-  title: "Welcome to Embellish",
+  title: "Embellish",
   description: "We sell the best products!",
   keywords: "electronics, rating, reviews",
 };
