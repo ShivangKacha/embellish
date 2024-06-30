@@ -81,6 +81,7 @@ import Carousel from 'react-material-ui-carousel';
 import { Paper, Typography, CircularProgress, Alert } from '@mui/material';
 import { useGetTopProductsQuery } from "../slices/productsApiSlice";
 
+
 const ProductCarousel = () => {
   const { data: products, isLoading, error } = useGetTopProductsQuery();
 
@@ -98,7 +99,7 @@ const ProductCarousel = () => {
         <Paper
           key={product._id}
           elevation={3}
-          style={{ marginBottom: '1rem', backgroundColor: '#ebdfed', borderRadius: '15px' }}
+          style={{ marginBottom: '1rem', backgroundColor: '#ebdfed', borderRadius: '15px', minHeight: '355px' }}
         >
           <Link to={`/product/${product._id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
             <div align="center">
