@@ -1,6 +1,6 @@
 const asyncHandler = require("../middlewares/asyncHandler");
 const Order = require("../models/orderModel");
-
+const Product = require("../models/productModel");
 const Razorpay = require('razorpay');
 const razorpay = new Razorpay({ key_id: 'YOUR_KEY_ID', key_secret: 'YOUR_SECRET' })
 
@@ -86,8 +86,14 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
     //   update_time: Date.now(),
     //   // email_address: req.body.email_address,
     // };
-
     const updatedOrder = await order.save();
+    for (let i = 0; i < order.orderItems.length; i++) {
+      console.log(order.orderItems[i].product)
+      const product = await Product.findById(order.orderItems[i].product);
+      product.countInStock = product.countInStock - order.orderItems[i].qty;
+      console.log(product.countInStock)
+      await product.save();
+    }
 
     res.status(200).json({ success: true, updatedOrder });
   } else {
@@ -123,6 +129,13 @@ const getOrders = asyncHandler(async (req, res) => {
   res.status(200).json(orders);
 });
 
+// @desc   clear all orders
+// @route  DELETE /api/orders/clear
+// @access Private/Admin
+const clearOrders = asyncHandler(async (req, res) => {
+  const orders = await Order.deleteMany({});
+  res.status(200).json(orders);
+});
 
 module.exports = {
   addOrderItems,
@@ -131,4 +144,5 @@ module.exports = {
   updateOrderToPaid,
   updateOrderToDelivered,
   getOrders,
+  clearOrders
 };
