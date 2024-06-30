@@ -143,6 +143,7 @@ import {
   useGetProductsQuery,
   useCreateProductMutation,
   useDeleteProductMutation,
+  useClearProductReviewsMutation,
 } from '../../slices/productsApiSlice';
 
 const ProductListScreen = () => {
@@ -153,7 +154,7 @@ const ProductListScreen = () => {
 
   const [createProduct, { isLoading: loadingCreate }] =
     useCreateProductMutation();
-
+  const [clearProductReviews] = useClearProductReviewsMutation();
   const [deleteProduct, { isLoading: loadingDelete }] =
     useDeleteProductMutation();
 
@@ -179,6 +180,18 @@ const ProductListScreen = () => {
       }
     }
   };
+
+  const deleteReviews = async () => {
+    if (window.confirm('Are you sure you want to delete all reviews?')) {
+      try {
+        await clearProductReviews();
+        toast.success('All reviews deleted!');
+        refetch();
+      } catch (err) {
+        toast.error(err?.data?.message || err.error);
+      }
+    }
+  }
   console.log(data?.pages, data?.page)
   return (
     <Container>
@@ -191,6 +204,10 @@ const ProductListScreen = () => {
         <Grid item>
           <Button variant="contained" color="primary" onClick={createProductHandler} sx={{ backgroundColor: "#b79cc5" }}>
             <FaPlus /> Create Product
+          </Button>
+          {/* //delete all reviews */}
+          <Button onClick={deleteReviews} variant="contained" color="error" sx={{ ml: 2 }}>
+            <FaTrash /> Delete All Reviews
           </Button>
         </Grid>
       </Grid>

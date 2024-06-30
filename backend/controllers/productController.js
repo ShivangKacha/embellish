@@ -11,11 +11,16 @@ const getProducts = asyncHandler(async (req, res) => {
     ? { name: { $regex: req.query.keyword, $options: "i" } }
     : {};
 
+
   const count = await Product.countDocuments({ ...keyword });
+
 
   const products = await Product.find({ ...keyword })
     .limit(pageSize)
     .skip(pageSize * (page - 1));
+
+
+
   res.json({ products, page, pages: Math.ceil(count / pageSize) });
 });
 
@@ -150,6 +155,10 @@ const getTopProducts = asyncHandler(async (req, res) => {
 //@access Private/Admin
 const clearProductReviews = asyncHandler(async (req, res) => {
   await Product.updateMany({}, { $set: { reviews: [] } });
+
+  //update numReviews and rating
+  await Product.updateMany({}, { $set: { numReviews: 0, rating: 0 } });
+
   res.status(200).json({ message: "Reviews cleared" });
 });
 
