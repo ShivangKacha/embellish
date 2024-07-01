@@ -99,6 +99,7 @@ const LoginScreen = () => {
                   backgroundColor: "#1976d2",
                 },
               }}
+              style={{ backgroundColor: "#b79cc5" }}
             >
               {isLoading ? (
                 <CircularProgress size={24} />

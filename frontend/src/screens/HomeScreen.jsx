@@ -20,7 +20,7 @@ const HomeScreen = () => {
       {!keyword ? (
         <ProductCarousel />
       ) : (
-        <Button component={Link} to={`/`} variant="contained" color="primary" sx={{ mb: 4 }}>
+        <Button component={Link} to={`/`} variant="contained" color="primary" sx={{ mb: 4 }} style={{ backgroundColor: "#b79cc5" }}>
           Go Back
         </Button>
       )}

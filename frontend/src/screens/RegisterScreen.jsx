@@ -108,6 +108,7 @@ const RegisterScreen = () => {
           variant="contained"
           color="primary"
           sx={{ mt: 2 }}
+          style={{ backgroundColor: "#b79cc5" }}
         >
           {isLoading ? <CircularProgress size={24} color="inherit" /> : "Register"}
         </Button>
