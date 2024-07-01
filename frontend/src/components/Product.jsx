@@ -80,7 +80,7 @@ const StyledLink = styled(Link)({
 const Product = ({ product }) => {
   return (
     <StyledCard sx={{ minHeight: 400 }}>
-      <StyledLink to={`http://localhost:3000/product/${product._id}`}>
+      <StyledLink to={`https://embellish-nyl4.onrender.com/product/${product._id}`}>
         <CardActionArea>
           <StyledCardMedia
             component="img"
