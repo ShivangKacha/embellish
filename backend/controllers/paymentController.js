@@ -1,15 +1,19 @@
 const Razorpay = require('razorpay');
-const razorpay = new Razorpay({ key_id: "rzp_test_m8mkcKrmzK0IXv", key_secret: "RVmY275QvG4qrYGWlhkM9RqF" })
 const asyncHandler = require("../middlewares/asyncHandler");
+
+// const razorpay = new Razorpay({ key_id: "rzp_test_m8mkcKrmzK0IXv", key_secret: "RVmY275QvG4qrYGWlhkM9RqF" })
+
 // @desc   Create razorpay order
-// @route  POST /api/orders/razorpay
+// @route  POST /api/payment/checkout
 // @access Private
 const checkout = asyncHandler(async (req, res) => {
+    const razorpay = new Razorpay({ key_id: process.env.RAZORPAY_KEYID, key_secret: process.env.RAZORPAY_KEYSECRET })
+    // console.log(process.env.RAZORPAY_KEYID);
     const { order } = req.body;
-    console.log(order);
-    console.log("ok");
+    // console.log(order);
+    // console.log("ok");
     amount = order.totalPrice;
-    console.log(amount);
+    // console.log(amount);
     var options = {
         amount: amount * 100, // amount in smallest currency unit
         currency: "INR",
@@ -19,7 +23,8 @@ const checkout = asyncHandler(async (req, res) => {
     res.json({
         order,
         payStatus: "created",
-        id: ordr._id
+        id: ordr._id,
+        key_id: process.env.RAZORPAY_KEYID,
     });
 });
 
@@ -28,7 +33,7 @@ const checkout = asyncHandler(async (req, res) => {
 // @access Private
 const verifyPayment = asyncHandler(async (req, res) => {
     const { order } = req.body;
-    console.log(order);
+    // console.log(order);
     if (order) {
         order.isPaid = true;
         order.paidAt = Date.now();

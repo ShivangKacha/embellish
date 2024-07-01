@@ -2,13 +2,13 @@ const asyncHandler = require("../middlewares/asyncHandler");
 const Order = require("../models/orderModel");
 const Product = require("../models/productModel");
 const Razorpay = require('razorpay');
-const razorpay = new Razorpay({ key_id: 'YOUR_KEY_ID', key_secret: 'YOUR_SECRET' })
+
 
 // @desc   Create new order
 // @route  POST /api/orders
 // @access Private
 const addOrderItems = asyncHandler(async (req, res) => {
-  console.log(req.cookies)
+  // console.log(req.cookies)
   const {
     orderItems,
     shippingAddress,
@@ -75,8 +75,8 @@ const getOrderById = asyncHandler(async (req, res) => {
 const updateOrderToPaid = asyncHandler(async (req, res) => {
   // console.log(req);
   const order = await Order.findById(req.params.id);
-  console.log(order);
-  console.log("done")
+  // console.log(order);
+  // console.log("done")
   if (order) {
     order.isPaid = true;
     order.paidAt = Date.now();
@@ -88,10 +88,10 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
     // };
     const updatedOrder = await order.save();
     for (let i = 0; i < order.orderItems.length; i++) {
-      console.log(order.orderItems[i].product)
+      // console.log(order.orderItems[i].product)
       const product = await Product.findById(order.orderItems[i].product);
       product.countInStock = product.countInStock - order.orderItems[i].qty;
-      console.log(product.countInStock)
+      // console.log(product.countInStock)
       await product.save();
     }
 
@@ -106,7 +106,7 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
 // @route  PUT /api/orders/:id/deliver
 // @access Private/Admin
 const updateOrderToDelivered = asyncHandler(async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const order = await Order.findById(req.params.id);
 
   if (order) {

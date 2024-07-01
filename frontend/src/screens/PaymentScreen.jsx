@@ -16,7 +16,7 @@ const PaymentScreen = () => {
     }
   }, [navigate, shippingAddress]);
 
-  const [paymentMethod, setPaymentMethod] = useState("PayPal");
+  const [paymentMethod, setPaymentMethod] = useState("RazorPay");
 
   const dispatch = useDispatch();
 
@@ -40,11 +40,13 @@ const PaymentScreen = () => {
             name="paymentMethod"
             value={paymentMethod}
             onChange={(e) => setPaymentMethod(e.target.value)}
+
           >
             <FormControlLabel
               value="RazorPay"
               control={<Radio />}
               label="RazorPay or Credit Card"
+              defaultChecked={true}
             />
           </RadioGroup>
         </FormControl>
