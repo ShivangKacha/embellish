@@ -192,7 +192,7 @@ const ProductListScreen = () => {
       }
     }
   }
-  console.log(data?.pages, data?.page)
+  // console.log(data?.pages, data?.page)
   return (
     <Container>
       <Grid container justifyContent="space-between" alignItems="center" sx={{ my: 3 }}>
